@@ -1,17 +1,16 @@
 import express from "express";
-//^ Importamos el fichero .env
 require("dotenv").config();
 
 import { getDB } from "./db/db";
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT;
 
 app.get("/", (req, res) => {
 	res.send("¡Hola, mundo!");
 });
 
-app.listen(port, () => {
-	console.log(`Servidor escuchando en http://localhost:${port}`);
+app.listen(PORT, () => {
+	console.log(`Servidor escuchando en http://localhost:${PORT}`);
 	getDB();
 });
