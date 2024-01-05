@@ -1,5 +1,5 @@
 import express from "express";
-import { getDB } from "./db/db";
+import { listUsers } from "./controlers/users/listUsers";
 
 require("dotenv").config();
 
@@ -16,6 +16,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
 	res.send("¡Hola, mundo!");
 });
+//^ GET/users
+app.get("/users/", listUsers);
 
 // middleware 404 not found
 app.use((req, res) => {
@@ -28,5 +30,4 @@ app.use((req, res) => {
 // Express en escucha
 app.listen(PORT, () => {
 	console.log(`Servidor escuchando en http://localhost:${PORT}`);
-	/* getDB(); */
 });
