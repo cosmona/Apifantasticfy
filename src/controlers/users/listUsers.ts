@@ -20,7 +20,7 @@ export const listUsers = async (req: any, res: any, next: any) => {
 			longitud: result.length,
 		});
 	} catch (error) {
-		console.error("Error connecting to MongoDB:", error);
+		console.error("Error al listar usuarios", error);
 	} finally {
 		// Cierra conexion
 		if (client) {

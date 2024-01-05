@@ -24,6 +24,34 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"user\":[\n  {\n  \"name\": \"Juan Pérez\",\n  \"username\": \"juanperez123\",\n  \"email\": \"juan.perez@example.com\",\n  \"address\": {\n    \"street\": \"123 Main Street\",\n    \"city\": \"Cityville\",\n    \"country\": \"Country\"\n  }\n}\n]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:{{port}}/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

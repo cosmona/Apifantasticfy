@@ -1,5 +1,7 @@
 import express from "express";
 import { listUsers } from "./controlers/users/listUsers";
+import { newUser } from "./controlers/users/newUser";
+import { sync } from "./controlers/users/sync";
 
 require("dotenv").config();
 
@@ -13,10 +15,9 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 //^ENDPOINTS
-//^ GET/users
-app.get("/users/", listUsers);
-//^ PUT /users
-/* app.put("/users/", listUsers); */
+app.get("/users/", listUsers); //^ GET/users
+app.put("/users/", newUser); //^ PUT /users
+app.post("/sync/", sync); //^ POST /sync
 
 // middleware 404 not found
 app.use((req, res) => {
