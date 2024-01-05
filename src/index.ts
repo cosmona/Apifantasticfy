@@ -7,7 +7,12 @@ require("dotenv").config();
 
 const morgan = require("morgan");
 const app = express();
+const cors = require("cors");
+
 const PORT = process.env.PORT;
+
+// Habilitar CORS para todas las rutas
+app.use(cors());
 
 //middleware para loguear peticiones http
 app.use(morgan("dev"));
