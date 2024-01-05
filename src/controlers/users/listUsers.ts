@@ -1,5 +1,4 @@
 import { connectMongoDB } from "../../db/db";
-import { MongoDBConfig } from "../../helpers/interfaces";
 import { NextFunction, Request, Response } from "express";
 
 export const listUsers = async (
@@ -7,13 +6,7 @@ export const listUsers = async (
 	res: Response,
 	next: NextFunction
 ) => {
-	const config: MongoDBConfig = {
-		user: process.env.USER_MONGODB,
-		password: process.env.PASSWORD,
-		cluster: process.env.CLUSTER,
-	};
-
-	const { client, collection } = await connectMongoDB(config);
+	const { client, collection } = await connectMongoDB();
 	try {
 		// Realizar la consulta
 		const result = await collection.find().toArray();

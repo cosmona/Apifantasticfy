@@ -1,12 +1,23 @@
 import { MongoClient, ServerApiVersion, Db, Collection } from "mongodb";
 import { MongoDBConfig } from "../helpers/interfaces";
 
-export async function connectMongoDB(
-	promps: MongoDBConfig
-): Promise<{ client: MongoClient; collection: Collection }> {
-	const { user, password, cluster } = promps;
+export async function connectMongoDB(): Promise<{
+	client: MongoClient;
+	collection: Collection;
+}> {
+	const config: MongoDBConfig = {
+		user: process.env.USER_MONGODB ? process.env.USER_MONGODB : "",
+		password: process.env.PASSWORD ? process.env.PASSWORD : "",
+		cluster: process.env.CLUSTER ? process.env.CLUSTER : "",
+	};
+	// Verificar si algún campo es una cadena vacía
+	if (!config.user || !config.password || !config.cluster) {
+		throw new Error(
+			"Faltan variables de entorno para la configuración de MongoDB"
+		);
+	}
 
-	const uri = `mongodb+srv://${user}:${password}@${cluster}.dpo7vlc.mongodb.net/?retryWrites=true&w=majority`;
+	const uri = `mongodb+srv://${config.user}:${config.password}@${config.cluster}.dpo7vlc.mongodb.net/?retryWrites=true&w=majority`;
 
 	const client = new MongoClient(uri, {
 		serverApi: {

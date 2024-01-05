@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { connectMongoDB } from "../../db/db";
-import { MongoDBConfig, UserData } from "../../helpers/interfaces";
+import { UserData } from "../../helpers/interfaces";
 
 export const newUser = async (
 	req: Request,
@@ -8,15 +8,9 @@ export const newUser = async (
 	next: NextFunction
 ) => {
 	const { user } = req.body;
-
-	const config: MongoDBConfig = {
-		user: process.env.USER_MONGODB,
-		password: process.env.PASSWORD,
-		cluster: process.env.CLUSTER,
-	};
 	const { v4: uuidv4 } = require("uuid");
 
-	const { client, collection } = await connectMongoDB(config);
+	const { client, collection } = await connectMongoDB();
 
 	const newUserData: UserData = {
 		_id: uuidv4(), // genera un identificador único
@@ -37,11 +31,6 @@ export const newUser = async (
 			res.send({
 				status: "ok",
 				message: "Nuevo usuario insertado correctamente",
-			});
-		} else {
-			res.send({
-				status: "error",
-				message: "Error al insertar nuevo usuario",
 			});
 		}
 	} catch (error) {
