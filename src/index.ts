@@ -12,12 +12,11 @@ app.use(morgan("dev"));
 //middleware para pardear el JSON
 app.use(express.json());
 
-// ENDPOINTS
-app.get("/", (req, res) => {
-	res.send("¡Hola, mundo!");
-});
+//^ENDPOINTS
 //^ GET/users
 app.get("/users/", listUsers);
+//^ PUT /users
+/* app.put("/users/", listUsers); */
 
 // middleware 404 not found
 app.use((req, res) => {

@@ -1,7 +1,8 @@
 import { connectMongoDB } from "../../db/db";
 import { MongoDBConfig } from "../../helpers/interfaces";
 
-export const listUsers = async (_req: any, res: any, next: any) => {
+//TODO tipar bien
+export const listUsers = async (req: any, res: any, next: any) => {
 	const config: MongoDBConfig = {
 		user: process.env.USER_MONGODB,
 		password: process.env.PASSWORD,
