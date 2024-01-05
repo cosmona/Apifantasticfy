@@ -1,8 +1,12 @@
+import { Request, Response, NextFunction } from "express";
 import { connectMongoDB } from "../../db/db";
 import { MongoDBConfig, UserData } from "../../helpers/interfaces";
 
-//TODO tipar bien estos any
-export const newUser = async (req: any, res: any, next: any) => {
+export const newUser = async (
+	req: Request,
+	res: Response,
+	next: NextFunction
+) => {
 	const { user } = req.body;
 
 	const config: MongoDBConfig = {
@@ -14,9 +18,8 @@ export const newUser = async (req: any, res: any, next: any) => {
 
 	const { client, collection } = await connectMongoDB(config);
 
-	//TODO Follon con el id
 	const newUserData: UserData = {
-		_id: uuidv4(),
+		_id: uuidv4(), // genera un identificador único
 		name: user[0].name,
 		username: user[0].username,
 		email: user[0].email,
