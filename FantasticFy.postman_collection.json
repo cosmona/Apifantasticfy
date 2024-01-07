@@ -26,6 +26,67 @@
 			"response": []
 		},
 		{
+			"name": "users Publicada",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://apifantasticfy.onrender.com/users/",
+					"protocol": "https",
+					"host": [
+						"apifantasticfy",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sync",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:{{port}}/sync/",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"sync",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sync Publicada",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://apifantasticfy.onrender.com/sync/",
+					"protocol": "https",
+					"host": [
+						"apifantasticfy",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"sync",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "user",
 			"request": {
 				"method": "PUT",
@@ -45,6 +106,36 @@
 						"localhost"
 					],
 					"port": "{{port}}",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user Publicada",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"user\":[\n  {\n  \"name\": \"Juan Pérez\",\n  \"username\": \"juanperez123\",\n  \"email\": \"juan.perez@example.com\",\n  \"address\": {\n    \"street\": \"123 Main Street\",\n    \"city\": \"Cityville\",\n    \"country\": \"Country\"\n  }\n}\n]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apifantasticfy.onrender.com/users/",
+					"protocol": "https",
+					"host": [
+						"apifantasticfy",
+						"onrender",
+						"com"
+					],
 					"path": [
 						"users",
 						""
