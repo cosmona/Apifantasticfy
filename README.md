@@ -2,6 +2,7 @@
 
 Nombre:Iñaki Perez Fernandez
 Api realizada en JS/node/Express.
+BD: Mongodb de atlas mongoDB
 
 ## ENDPOINTS
 
