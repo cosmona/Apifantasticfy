@@ -7,21 +7,22 @@ export const newUser = async (
 	res: Response,
 	next: NextFunction
 ) => {
-	const { user } = req.body;
+	console.log("req.body", req.body);
+	const { name, username, email, street, city, country } = req.body;
 	const { v4: uuidv4 } = require("uuid");
 
 	const { client, collection } = await connectMongoDB();
 
 	const newUserData: UserData = {
 		_id: uuidv4(), // genera un identificador único
-		name: user[0].name,
-		username: user[0].username,
-		email: user[0].email,
+		name: name,
+		username: username,
+		email: email,
 		external_id: uuidv4(), // genera un identificador único
 		address: {
-			street: user[0].address.street,
-			city: user[0].address.city,
-			country: user[0].address.country,
+			street: street,
+			city: city,
+			country: country,
 		},
 	};
 
