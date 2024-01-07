@@ -15,3 +15,7 @@ Obtener el listado completo de todos los usuarios.
 
 PUT /users
 Crea un usuario en la base de datos.
+
+URL:
+Netifly
+https://apifantasticfy.onrender.com/
