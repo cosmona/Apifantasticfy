@@ -19,10 +19,10 @@ app.use(morgan("dev"));
 //middleware para pardear el JSON
 app.use(express.json());
 
-//^ENDPOINTS
-app.get("/users/", listUsers); //^ GET/users
-app.put("/users/", newUser); //^ PUT /users
-app.post("/sync/", sync); //^ POST /sync
+//ENDPOINTS
+app.get("/users/", listUsers); // GET/users
+app.put("/users/", newUser); // PUT /users
+app.post("/sync/", sync); // POST /sync
 
 // middleware 404 not found
 app.use((req, res) => {
