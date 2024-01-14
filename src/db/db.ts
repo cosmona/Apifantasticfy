@@ -30,11 +30,11 @@ export async function connectMongoDB(): Promise<{
 	await client.connect();
 	const db = client.db("fantasticfy");
 	const collection = db.collection("fantasticfy");
-
+	/* 
 	await client.db("admin").command({ ping: 1 });
 	console.log(
 		"Pinged your deployment. You successfully connected to MongoDB!"
-	);
+	); */
 
 	return { client, collection };
 }
